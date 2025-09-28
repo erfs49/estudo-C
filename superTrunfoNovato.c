@@ -1,16 +1,14 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
     char estado1, estado2;
     char codigo1[5], codigo2[5];
     char cidade1[30], cidade2[30];
     int populacao1, populacao2;
-    float area1, area2;
-    float pib1, pib2;
+    float area1, area2, pib1, pib2;
     int pontos1, pontos2;
 
-    // Carta 1
+    // Entrada carta 1
     printf("Estado da carta 1: ");
     scanf(" %c", &estado1);
     printf("Código da carta 1: ");
@@ -26,7 +24,7 @@ int main() {
     printf("Pontos turísticos: ");
     scanf("%d", &pontos1);
 
-    // Carta 2
+    // Entrada carta 2
     printf("\nEstado da carta 2: ");
     scanf(" %c", &estado2);
     printf("Código da carta 2: ");
@@ -48,10 +46,10 @@ int main() {
     float pibPerCapita1 = pib1 * 1000000000 / populacao1;
     float pibPerCapita2 = pib2 * 1000000000 / populacao2;
 
-    // Comparação por população (fixo)
+    // Comparação fixa por população
     printf("\nComparação por População:\n");
-    printf("Carta 1 - %s: %d\n", cidade1, populacao1);
-    printf("Carta 2 - %s: %d\n", cidade2, populacao2);
+    printf("Carta 1 - %s: %d habitantes\n", cidade1, populacao1);
+    printf("Carta 2 - %s: %d habitantes\n", cidade2, populacao2);
 
     if (populacao1 > populacao2) {
         printf("Resultado: Carta 1 venceu!\n");
@@ -63,4 +61,5 @@ int main() {
 
     return 0;
 }
+
 
