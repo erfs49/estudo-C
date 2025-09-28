@@ -1,14 +1,29 @@
-include <stdio.h>
-int main(){
-  int movimentoTorre = 5 , 
-      movimentobispo = 5 ,
-      movimentoRainha = 8;
+#include <stdio.h>
 
-  printf("movimento torre:\n");
+int main() {
+    int movimentoTorre = 5, 
+        movimentoBispo = 5,
+        movimentoRainha = 8;
 
-  for(int i = 0; i; i < movimentoTorre;i++){
-  printf("%d-direita",i);
-  }
-  return 0;
+    // Movimento da Torre
+    printf("movimento torre:\n");
+    for (int i = 1; i <= movimentoTorre; i++) {
+        printf("%d- direita\n", i);
+    }
+
+    // Movimento do Bispo
+    printf("\nmovimento bispo:\n");
+    for (int i = 1; i <= movimentoBispo; i++) {
+        printf("%d- cima\n", i);
+        printf("%d- direita\n", i);
+    }
+
+    // Movimento da Rainha
+    printf("\nmovimento rainha:\n");
+    for (int i = 1; i <= movimentoRainha; i++) {
+        printf("%d- esquerda\n", i);
+    }
+
+    return 0;
 }
 
