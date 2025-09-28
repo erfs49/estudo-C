@@ -2,122 +2,92 @@
 #include <string.h>
 
 int main() {
-    // Dados da primeira carta
-    char nomeCidade1[30];
-    int populacao1;
-    float area1;
-    float pib1;
-    int pontosTuristicos1;
-    float densidade1;
-
-    // Dados da segunda carta
-    char nomeCidade2[30];
-    int populacao2;
-    float area2;
-    float pib2;
-    int pontosTuristicos2;
-    float densidade2;
-
+    char cidade1[30], cidade2[30];
+    int populacao1, populacao2;
+    float area1, area2, pib1, pib2;
+    int pontos1, pontos2;
     int opcao;
-    float valor1, valor2;
 
-    // Cadastro da primeira carta
-    printf("Cadastro da primeira carta:\n");
-    printf("Nome da cidade: ");
-    fgets(nomeCidade1, sizeof(nomeCidade1), stdin);
-    nomeCidade1[strcspn(nomeCidade1, "\n")] = 0;
+    // Entrada carta 1
+    printf("Cidade 1: ");
+    scanf(" %[^\n]", cidade1);
     printf("População: ");
     scanf("%d", &populacao1);
-    printf("Área (em km²): ");
+    printf("Área: ");
     scanf("%f", &area1);
-    printf("PIB (em bilhões): ");
+    printf("PIB: ");
     scanf("%f", &pib1);
-    printf("Número de pontos turísticos: ");
-    scanf("%d", &pontosTuristicos1);
+    printf("Pontos turísticos: ");
+    scanf("%d", &pontos1);
 
-    getchar(); // Limpa buffer
-
-    // Cadastro da segunda carta
-    printf("\nCadastro da segunda carta:\n");
-    printf("Nome da cidade: ");
-    fgets(nomeCidade2, sizeof(nomeCidade2), stdin);
-    nomeCidade2[strcspn(nomeCidade2, "\n")] = 0;
+    // Entrada carta 2
+    printf("\nCidade 2: ");
+    scanf(" %[^\n]", cidade2);
     printf("População: ");
     scanf("%d", &populacao2);
-    printf("Área (em km²): ");
+    printf("Área: ");
     scanf("%f", &area2);
-    printf("PIB (em bilhões): ");
+    printf("PIB: ");
     scanf("%f", &pib2);
-    printf("Número de pontos turísticos: ");
-    scanf("%d", &pontosTuristicos2);
+    printf("Pontos turísticos: ");
+    scanf("%d", &pontos2);
 
-    // Cálculo da densidade demográfica
-    densidade1 = populacao1 / area1;
-    densidade2 = populacao2 / area2;
+    float densidade1 = populacao1 / area1;
+    float densidade2 = populacao2 / area2;
 
-    // Menu interativo
+    // Menu
     printf("\nEscolha o atributo para comparar:\n");
-    printf("1 - População\n");
-    printf("2 - Área\n");
-    printf("3 - PIB\n");
-    printf("4 - Pontos Turísticos\n");
-    printf("5 - Densidade Demográfica\n");
-    printf("Opção: ");
+    printf("1 - População\n2 - Área\n3 - PIB\n4 - Pontos turísticos\n5 - Densidade\n");
     scanf("%d", &opcao);
 
-    printf("\n--- Resultado da Comparação ---\n");
-    printf("Cidade 1: %s\n", nomeCidade1);
-    printf("Cidade 2: %s\n\n", nomeCidade2);
+    float valor1, valor2;
 
     switch (opcao) {
         case 1:
             valor1 = populacao1;
             valor2 = populacao2;
-            printf("População: %d x %d\n", populacao1, populacao2);
             break;
         case 2:
             valor1 = area1;
             valor2 = area2;
-            printf("Área: %.2f x %.2f\n", area1, area2);
             break;
         case 3:
             valor1 = pib1;
             valor2 = pib2;
-            printf("PIB: %.2f x %.2f\n", pib1, pib2);
             break;
         case 4:
-            valor1 = pontosTuristicos1;
-            valor2 = pontosTuristicos2;
-            printf("Pontos Turísticos: %d x %d\n", pontosTuristicos1, pontosTuristicos2);
+            valor1 = pontos1;
+            valor2 = pontos2;
             break;
         case 5:
             valor1 = densidade1;
             valor2 = densidade2;
-            printf("Densidade Demográfica: %.2f x %.2f\n", densidade1, densidade2);
             break;
         default:
-            printf("Opção inválida!\n");
+            printf("Opção inválida.\n");
             return 1;
     }
 
-    // Lógica de comparação com if-else aninhado
+    // Comparação
+    printf("\n%s: %.2f\n", cidade1, valor1);
+    printf("%s: %.2f\n", cidade2, valor2);
+
     if (opcao == 5) {
-        if (valor1 < valor2) {
-            printf("Vencedor: %s (menor densidade)\n", nomeCidade1);
-        } else if (valor2 < valor1) {
-            printf("Vencedor: %s (menor densidade)\n", nomeCidade2);
-        } else {
+        if (valor1 < valor2)
+            printf("Vencedor: %s\n", cidade1);
+        else if (valor2 < valor1)
+            printf("Vencedor: %s\n", cidade2);
+        else
             printf("Empate!\n");
-        }
     } else {
-        if (valor1 > valor2) {
-            printf("Vencedor: %s\n", nomeCidade1);
-        } else if (valor2 > valor1) {
-            printf("Vencedor: %s\n", nomeCidade2);
-        } else {
+        if (valor1 > valor2)
+            printf("Vencedor: %s\n", cidade1);
+        else if (valor2 > valor1)
+            printf("Vencedor: %s\n", cidade2);
+        else
             printf("Empate!\n");
-        }
     }
 
     return 0;
 }
+
