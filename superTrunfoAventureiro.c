@@ -41,29 +41,12 @@ int main() {
     scanf("%d", &atributo);
 
     switch (atributo) {
-        case 1:
-            valor1 = populacao1;
-            valor2 = populacao2;
-            break;
-        case 2:
-            valor1 = area1;
-            valor2 = area2;
-            break;
-        case 3:
-            valor1 = pib1;
-            valor2 = pib2;
-            break;
-        case 4:
-            valor1 = pontos1;
-            valor2 = pontos2;
-            break;
-        case 5:
-            valor1 = densidade1;
-            valor2 = densidade2;
-            break;
-        default:
-            printf("Opção inválida.\n");
-            return 1;
+        case 1: valor1 = populacao1; valor2 = populacao2; break;
+        case 2: valor1 = area1; valor2 = area2; break;
+        case 3: valor1 = pib1; valor2 = pib2; break;
+        case 4: valor1 = pontos1; valor2 = pontos2; break;
+        case 5: valor1 = densidade1; valor2 = densidade2; break;
+        default: printf("Opção inválida.\n"); return 1;
     }
 
     // Comparação
@@ -87,8 +70,6 @@ int main() {
     }
 
     return 0;
-}
-
 }
 
 
