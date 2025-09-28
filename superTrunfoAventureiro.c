@@ -8,36 +8,33 @@ int main() {
     int atributo;
     float valor1, valor2;
 
-    // Entrada carta 1
     printf("Cidade 1: ");
     scanf(" %[^\n]", cidade1);
-    printf("População: ");
+    printf("Populacao: ");
     scanf("%d", &populacao1);
-    printf("Área: ");
+    printf("Area: ");
     scanf("%f", &area1);
     printf("PIB: ");
     scanf("%f", &pib1);
-    printf("Pontos turísticos: ");
+    printf("Pontos turisticos: ");
     scanf("%d", &pontos1);
 
-    // Entrada carta 2
     printf("\nCidade 2: ");
     scanf(" %[^\n]", cidade2);
-    printf("População: ");
+    printf("Populacao: ");
     scanf("%d", &populacao2);
-    printf("Área: ");
+    printf("Area: ");
     scanf("%f", &area2);
     printf("PIB: ");
     scanf("%f", &pib2);
-    printf("Pontos turísticos: ");
+    printf("Pontos turisticos: ");
     scanf("%d", &pontos2);
 
     float densidade1 = populacao1 / area1;
     float densidade2 = populacao2 / area2;
 
-    // Menu de escolha
     printf("\nEscolha o atributo para comparar:\n");
-    printf("1 - População\n2 - Área\n3 - PIB\n4 - Pontos turísticos\n5 - Densidade\n");
+    printf("1 - Populacao\n2 - Area\n3 - PIB\n4 - Pontos turisticos\n5 - Densidade\n");
     scanf("%d", &atributo);
 
     switch (atributo) {
@@ -46,10 +43,9 @@ int main() {
         case 3: valor1 = pib1; valor2 = pib2; break;
         case 4: valor1 = pontos1; valor2 = pontos2; break;
         case 5: valor1 = densidade1; valor2 = densidade2; break;
-        default: printf("Opção inválida.\n"); return 1;
+        default: printf("Opcao invalida\n"); return 1;
     }
 
-    // Comparação
     printf("\n%s: %.2f\n", cidade1, valor1);
     printf("%s: %.2f\n", cidade2, valor2);
 
@@ -59,17 +55,18 @@ int main() {
         else if (valor2 < valor1)
             printf("Vencedor: %s\n", cidade2);
         else
-            printf("Empate!\n");
+            printf("Empate\n");
     } else {
         if (valor1 > valor2)
             printf("Vencedor: %s\n", cidade1);
         else if (valor2 > valor1)
             printf("Vencedor: %s\n", cidade2);
         else
-            printf("Empate!\n");
+            printf("Empate\n");
     }
 
     return 0;
 }
+
 
 
