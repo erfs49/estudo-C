@@ -1,12 +1,12 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
     char cidade1[30], cidade2[30];
     int populacao1, populacao2;
     float area1, area2, pib1, pib2;
     int pontos1, pontos2;
-    int opcao;
+    int atributo;
+    float valor1, valor2;
 
     // Entrada carta 1
     printf("Cidade 1: ");
@@ -35,14 +35,12 @@ int main() {
     float densidade1 = populacao1 / area1;
     float densidade2 = populacao2 / area2;
 
-    // Menu
+    // Menu de escolha
     printf("\nEscolha o atributo para comparar:\n");
     printf("1 - População\n2 - Área\n3 - PIB\n4 - Pontos turísticos\n5 - Densidade\n");
-    scanf("%d", &opcao);
+    scanf("%d", &atributo);
 
-    float valor1, valor2;
-
-    switch (opcao) {
+    switch (atributo) {
         case 1:
             valor1 = populacao1;
             valor2 = populacao2;
@@ -72,7 +70,7 @@ int main() {
     printf("\n%s: %.2f\n", cidade1, valor1);
     printf("%s: %.2f\n", cidade2, valor2);
 
-    if (opcao == 5) {
+    if (atributo == 5) {
         if (valor1 < valor2)
             printf("Vencedor: %s\n", cidade1);
         else if (valor2 < valor1)
@@ -90,4 +88,7 @@ int main() {
 
     return 0;
 }
+
+}
+
 
