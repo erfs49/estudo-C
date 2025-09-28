@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
     char cidade1[30], cidade2[30];
@@ -7,6 +6,7 @@ int main() {
     float area1, area2, pib1, pib2;
     int pontos1, pontos2;
     int atributo1, atributo2;
+    float valor1a, valor2a, valor1b, valor2b;
 
     // Entrada carta 1
     printf("Cidade 1: ");
@@ -36,32 +36,48 @@ int main() {
     float densidade2 = populacao2 / area2;
 
     // Menu atributo 1
-    printf("\nEscolha o primeiro atributo:\n1 - População\n2 - Área\n3 - PIB\n4 - Pontos\n5 - Densidade\n");
+    printf("\nEscolha o primeiro atributo:\n");
+    printf("1 - População\n2 - Área\n3 - PIB\n4 - Pontos turísticos\n5 - Densidade\n");
     scanf("%d", &atributo1);
+
+    // Atributo 1
+    switch (atributo1) {
+        case 1: valor1a = populacao1; valor2a = populacao2; break;
+        case 2: valor1a = area1; valor2a = area2; break;
+        case 3: valor1a = pib1; valor2a = pib2; break;
+        case 4: valor1a = pontos1; valor2a = pontos2; break;
+        case 5: valor1a = densidade1; valor2a = densidade2; break;
+        default: printf("Atributo 1 inválido.\n"); return 1;
+    }
 
     // Menu atributo 2
     printf("\nEscolha o segundo atributo (diferente do primeiro):\n");
     scanf("%d", &atributo2);
 
-    float v1a, v2a, v1b, v2b;
-
-    // Atributo 1
-    v1a = (atributo1 == 1) ? populacao1 :
-          (atributo1 == 2) ? area1 :
-          (atributo1 == 3) ? pib1 :
-          (atributo1 == 4) ? pontos1 : densidade1;
-
-    v2a = (atributo1 == 1) ? populacao2 :
-          (atributo1 == 2) ? area2 :
-          (atributo1 == 3) ? pib2 :
-          (atributo1 == 4) ? pontos2 : densidade2;
-
     // Atributo 2
-    v1b = (atributo2 == 1) ? populacao1 :
-          (atributo2 == 2) ? area1 :
-          (atributo2 == 3) ? pib1 :
-          (atributo2 == 4) ? pontos1 : densidade1;
+    switch (atributo2) {
+        case 1: valor1b = populacao1; valor2b = populacao2; break;
+        case 2: valor1b = area1; valor2b = area2; break;
+        case 3: valor1b = pib1; valor2b = pib2; break;
+        case 4: valor1b = pontos1; valor2b = pontos2; break;
+        case 5: valor1b = densidade1; valor2b = densidade2; break;
+        default: printf("Atributo 2 inválido.\n"); return 1;
+    }
 
-    v2b = (atributo2 == 1) ? populacao2 :
-          (atributo2 == 2) ? area2 :
-          (atributo2
+    // Soma dos atributos
+    float soma1 = valor1a + valor1b;
+    float soma2 = valor2a + valor2b;
+
+    // Impressão dos valores
+    printf("\n%s: %.2f + %.2f = %.2f\n", cidade1, valor1a, valor1b, soma1);
+    printf("%s: %.2f + %.2f = %.2f\n", cidade2, valor2a, valor2b, soma2);
+
+    // Comparação final com ternário
+    printf("Resultado: %s venceu!\n", 
+        (soma1 > soma2) ? cidade1 : 
+        (soma2 > soma1) ? cidade2 : "Empate");
+
+    return 0;
+}
+
+
