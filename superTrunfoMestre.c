@@ -40,6 +40,15 @@ int main() {
     printf("1 - População\n2 - Área\n3 - PIB\n4 - Pontos turísticos\n5 - Densidade\n");
     scanf("%d", &atributo1);
 
+    // Menu atributo 2
+    printf("\nEscolha o segundo atributo (diferente do primeiro):\n");
+    scanf("%d", &atributo2);
+
+    if (atributo1 == atributo2) {
+        printf("Os atributos devem ser diferentes.\n");
+        return 1;
+    }
+
     // Atributo 1
     switch (atributo1) {
         case 1: valor1a = populacao1; valor2a = populacao2; break;
@@ -49,10 +58,6 @@ int main() {
         case 5: valor1a = densidade1; valor2a = densidade2; break;
         default: printf("Atributo 1 inválido.\n"); return 1;
     }
-
-    // Menu atributo 2
-    printf("\nEscolha o segundo atributo (diferente do primeiro):\n");
-    scanf("%d", &atributo2);
 
     // Atributo 2
     switch (atributo2) {
@@ -72,12 +77,11 @@ int main() {
     printf("\n%s: %.2f + %.2f = %.2f\n", cidade1, valor1a, valor1b, soma1);
     printf("%s: %.2f + %.2f = %.2f\n", cidade2, valor2a, valor2b, soma2);
 
-    // Comparação final com ternário
-    printf("Resultado: %s venceu!\n", 
+    // Resultado
+    printf("Resultado: %s\n", 
         (soma1 > soma2) ? cidade1 : 
         (soma2 > soma1) ? cidade2 : "Empate");
 
     return 0;
 }
-
 
